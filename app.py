@@ -1,5 +1,10 @@
 from select import select
 
+def boas_vindas():
+     return print('Bem-vindo a Calculadora 1.0 do Sr. Matheus\n')
+
+def despedida():
+     return print('Obrigado por usar a calculadora do Sr. Matheus!')
 
 def soma(primeiro_parametro, segundo_parametro):
     return primeiro_parametro + segundo_parametro
@@ -62,16 +67,16 @@ def continua_conta(terceiro_parametro):
 
     seg = input('Deseja continuar? s/n ')
     if seg == 's':
-        continua_conta(terceiro_parametro)
+        return continua_conta(terceiro_parametro)
     elif seg == 'n':
-        centro()
+        return centro()
 
 
 def centro():
     while 'sim'.title():
 
-        print('Calculadora 1.0\n')
 
+        boas_vindas()
         operador = chama_operacao(select)
         primeiro_parametro = primeiro_valor_do_parametro()
         segundo_parametro = segundo_valor_do_parametro()
@@ -80,10 +85,11 @@ def centro():
 
         seg = input('Deseja continuar, fazer nova conta ou finalizar? continuar(c)/nova conta(n)/ finalizar(f):  ')
         if seg == 'c':
-            continua_conta(terceiro_parametro)
+            return continua_conta(terceiro_parametro)
         elif seg == 'n':
-            centro()
+            return centro()
         elif seg == 'f':
+            despedida()
             break
 
 
