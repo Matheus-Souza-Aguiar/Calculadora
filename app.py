@@ -1,10 +1,8 @@
 from select import select
 
 def boas_vindas():
-     return print('Bem-vindo a Calculadora 1.0 do Sr. Matheus\n')
+     return print('Bem-vindo a Calculadora Sr. Matheus\n')
 
-def despedida():
-     return print('Obrigado por usar a calculadora do Sr. Matheus!')
 
 def soma(primeiro_parametro, segundo_parametro):
     return primeiro_parametro + segundo_parametro
@@ -34,8 +32,8 @@ def repeticao_de_zero():
         centro()
 
 
-def subtrai(parametro1, parametro2):
-    return parametro1 - parametro2
+def subtrai(primeiro_parametro, segundo_parametro):
+    return primeiro_parametro - segundo_parametro
 
 
 def chama_operacao(select):
@@ -65,17 +63,19 @@ def continua_conta(terceiro_parametro):
     terceiro_parametro = devolve_resultado(operador, primeiro_parametro, segundo_parametro)
     print(terceiro_parametro)
 
-    seg = input('Deseja continuar? s/n ')
-    if seg == 's':
+    seg = input('Deseja continuar, fazer nova conta ou finalizar? continuar(c)/nova conta(n)/ finalizar(f):  ')
+    if seg == 'c':
         return continua_conta(terceiro_parametro)
     elif seg == 'n':
         return centro()
+    elif seg == 'f':
+        return despedida()
 
+def despedida():
+     return print('Obrigado por usar a calculadora do Sr. Matheus!')
 
 def centro():
-    while 'sim'.title():
-
-
+        
         boas_vindas()
         operador = chama_operacao(select)
         primeiro_parametro = primeiro_valor_do_parametro()
@@ -90,7 +90,8 @@ def centro():
             return centro()
         elif seg == 'f':
             despedida()
-            break
+            
 
 
 centro()
+
